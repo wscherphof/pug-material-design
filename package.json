@@ -1,0 +1,32 @@
+{
+  "name": "pug-material-design",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wscherphof/pug-material-design.git"
+  },
+  "author": "Wouter Scherphof",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/wscherphof/pug-material-design/issues"
+  },
+  "homepage": "https://github.com/wscherphof/pug-material-design#readme",
+  "devDependencies": {
+    "sass": "^1.47.0",
+    "standard": "^16.0.4"
+  },
+  "dependencies": {
+    "@material/button": "^13.0.0",
+    "@material/icon-button": "^13.0.0",
+    "@material/textfield": "^13.0.0",
+    "fastify-plugin": "^3.0.0",
+    "material-icons": "^1.10.5",
+    "point-of-view": "^5.0.0",
+    "pug": "^3.0.2"
+  }
+}
