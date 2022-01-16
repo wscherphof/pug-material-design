@@ -7,7 +7,7 @@ const pug = require('pug')
 // the use of fastify-plugin is required to be able
 // to export the decorators to the outer scope
 
-async function plugin (fastify, options = {}) {
+async function plugin(fastify, options = {}) {
   const defaults = {
     views: './views'
   }
@@ -18,17 +18,17 @@ async function plugin (fastify, options = {}) {
     engine: { pug: require('pug') },
     root: options.views,
     options: {
-      basedir: path.join(__dirname, '..') // "node_modules"
+      basedir: path.resolve('node_modules')
     }
   })
 
   // https://stackoverflow.com/a/26525724/2389922
-  function view (template, options = {}) {
-    options.include = function pugDynamicIncludes (template) {
+  function view(template, options = {}) {
+    options.include = function pugDynamicIncludes(template) {
       /* usage:
         != include('template')
       */
-      function render (file) {
+      function render(file) {
         const basedir = path.resolve('node_modules')
         return pug.renderFile(file, Object.assign(options, { basedir }))
       }
