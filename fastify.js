@@ -29,8 +29,8 @@ async function plugin(fastify, options = {}) {
         != include('template')
       */
       function render(file) {
-        const basedir = path.resolve('node_modules')
-        return pug.renderFile(file, Object.assign(options, { basedir }))
+        options.basedir = path.resolve('node_modules')
+        return pug.renderFile(file, options)
       }
       try {
         return render(path.join('views', template + '.pug'))
