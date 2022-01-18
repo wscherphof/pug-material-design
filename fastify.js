@@ -13,38 +13,52 @@ async function plugin(fastify, options = {}) {
     propertyName: 'view'
   }
   options = Object.assign(defaults, options)
+  const { views, propertyName } = options
 
   const unusedPropertyName = 'pugUnextended'
   fastify.register(require('point-of-view'), {
     propertyName: unusedPropertyName,
     engine: { pug: require('pug') },
-    root: options.views,
+    root: views,
     options: {
       basedir: path.resolve('node_modules')
     }
   })
 
-  // https://stackoverflow.com/a/26525724/2389922
-  function view(template, options = {}) {
-    options.include = function pugDynamicIncludes(template) {
-      /* usage:
-        != include('template')
-      */
-      function render(file) {
-        options.basedir = path.resolve('node_modules')
-        return pug.renderFile(file, options)
-      }
-      try {
-        return render(path.join('views', template + '.pug'))
-      } catch (error) {
-        return render(path.join('views', template, 'index.pug'))
-      }
-    }
-    return this[unusedPropertyName](template, options)
+  function decorate(object, request) {
+    object[propertyName] = viewFunction(object, request)
   }
 
-  fastify.decorateReply(options.propertyName, view)
-  fastify.decorate(options.propertyName, view)
+  function viewFunction(object, request) {
+    object = object || this
+    return function view(template, options = {}) {
+      options.request = request
+      options.include = function pugDynamicIncludes(template) {
+        /* https://stackoverflow.com/a/26525724/2389922
+          usage:
+          != include('template')
+        */
+        function render(file) {
+          options.basedir = path.resolve('node_modules')
+          return pug.renderFile(file, options)
+        }
+        try {
+          return render(path.join(views, template + '.pug'))
+        } catch (error) {
+          return render(path.join(views, template, 'index.pug'))
+        }
+      }
+      return object[unusedPropertyName](template, options)
+    }
+  }
+
+  fastify.addHook('onRequest', async (request, reply) => {
+    decorate(reply, request)
+    decorate(fastify, request)
+  })
+
+  fastify.decorateReply(propertyName, viewFunction())
+  fastify.decorate(propertyName, viewFunction())
 }
 
 module.exports = fp(plugin, { name: 'pug-material-design' })
