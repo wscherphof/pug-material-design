@@ -7,7 +7,7 @@ const pug = require('pug')
 // the use of fastify-plugin is required to be able
 // to export the decorators to the outer scope
 
-async function plugin(fastify, options = {}) {
+async function plugin (fastify, options = {}) {
   const defaults = {
     views: './views',
     propertyName: 'view'
@@ -25,20 +25,16 @@ async function plugin(fastify, options = {}) {
     }
   })
 
-  function decorate(object, request) {
-    object[propertyName] = viewFunction(object, request)
-  }
-
-  function viewFunction(object, request) {
+  function viewFunction (object, request) {
     object = object || this
-    return function view(template, options = {}) {
+    return function view (template, options = {}) {
       options.request = request
-      options.include = function pugDynamicIncludes(template) {
+      options.include = function pugDynamicIncludes (template) {
         /* https://stackoverflow.com/a/26525724/2389922
           usage:
           != include('template')
         */
-        function render(file) {
+        function render (file) {
           options.basedir = path.resolve('node_modules')
           return pug.renderFile(file, options)
         }
@@ -52,13 +48,17 @@ async function plugin(fastify, options = {}) {
     }
   }
 
-  fastify.addHook('onRequest', async (request, reply) => {
-    decorate(reply, request)
-    decorate(fastify, request)
-  })
-
   fastify.decorateReply(propertyName, viewFunction())
   fastify.decorate(propertyName, viewFunction())
+
+  function reDecorate (object, request) {
+    object[propertyName] = viewFunction(object, request)
+  }
+
+  fastify.addHook('onRequest', async (request, reply) => {
+    reDecorate(reply, request)
+    reDecorate(fastify, request)
+  })
 }
 
 module.exports = fp(plugin, { name: 'pug-material-design' })
