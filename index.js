@@ -1,7 +1,7 @@
-import "./style.scss";
-import { MDCRipple } from "@material/ripple";
-import { MDCIconButtonToggle } from "@material/icon-button";
-import { MDCTextField } from "@material/textfield";
+import './style.scss';
+import { MDCRipple } from '@material/ripple';
+import { MDCIconButtonToggle } from '@material/icon-button';
+import { MDCTextField } from '@material/textfield';
 
 function initMaterialDesign(element) {
   function init(classes, init) {
@@ -10,29 +10,29 @@ function initMaterialDesign(element) {
       if (element.classList.contains(className)) {
         init(element, className);
       }
-      element.querySelectorAll("." + className).forEach((element) => {
+      element.querySelectorAll('.' + className).forEach((element) => {
         init(element, className);
       });
     });
   }
-  init(["mdc-button", "mdc-icon-button"], (element, className) => {
+  init(['mdc-button', 'mdc-icon-button'], (element, className) => {
     const ripple = new MDCRipple(element);
-    if (className === "mdc-icon-button") {
+    if (className === 'mdc-icon-button') {
       ripple.unbounded = true;
-      if (element.getAttribute("toggle")) {
+      if (element.getAttribute('toggle')) {
         const iconToggle = new MDCIconButtonToggle(element);
-        iconToggle.listen("MDCIconButtonToggle:change", (event) => {
+        iconToggle.listen('MDCIconButtonToggle:change', (event) => {
           element.dispatchEvent(event);
         });
       }
     }
   });
-  init("mdc-text-field", (elt) => {
+  init('mdc-text-field', (elt) => {
     return new MDCTextField(elt);
   });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
   // eslint-disable-next-line
   if (!htmx) {
     initMaterialDesign(document);
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // eslint-disable-next-line
 if (htmx) {
   // eslint-disable-next-line
-  htmx.on("htmx:load", function ({ detail }) {
+  htmx.on('htmx:load', function ({ detail }) {
     initMaterialDesign(detail.elt);
   });
 }
