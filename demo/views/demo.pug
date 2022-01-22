@@ -1,4 +1,5 @@
-include ../../button
+//- include ../../button
+include /pug-material-design/button
 
 style.
   .p {
@@ -21,7 +22,8 @@ br
 .p: +unelevatedButton({ label: 'unelevated button trailing icon', icon: { icon: 'face', trailing: true } })
 br
 
-include ../../iconButton
+//- include ../../iconButton
+include /pug-material-design/iconButton
 
 .p Icon button
   +iconButton('favorite', 'icon button')
@@ -31,7 +33,8 @@ include ../../iconButton
   +iconToggleButton('favorite_border', 'icon toggle button on', 'favorite', true)
 br
 
-include ../../textField
+//- include ../../textField
+include /pug-material-design/textField
 
 .p: +filledTextField('name', 'filledTextField')
 .p: +outlinedTextField('name', 'outlinedTextField')
