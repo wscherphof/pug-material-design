@@ -1,0 +1,9 @@
+-
+  function randomId() {
+      const random = Math.random();
+      return 'id' + `${random}`.substring(2);
+  }
+
+mixin script(className, id)
+  - const script = `window['${className}'](${id});`;
+  script= script

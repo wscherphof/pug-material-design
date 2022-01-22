@@ -17,6 +17,8 @@ mixin iconToggleButton(icon, ariaLabel, iconOff, on)
   https://github.com/material-components/material-components-web/tree/v13.0.0/packages/mdc-icon-button
   and: https://github.com/material-components/material-components-web/commit/6f283f47dff464ac861c96e2f2c249f16f776dee
 
+include /pug-material-design/utils
+
 mixin mdc-icon-button(icon, ariaLabel, iconOff, on)
   -
     const toggle = !!iconOff
@@ -30,7 +32,8 @@ mixin mdc-icon-button(icon, ariaLabel, iconOff, on)
         }
     }
   .mdc-touch-target-wrapper
-    button.mdc-icon-button(aria-label=ariaLabel, toggle)&attributes(attributes)&attributes(toggleAttributes)
+    - const id = randomId();
+    button.mdc-icon-button(id=id, aria-label=ariaLabel, toggle)&attributes(attributes)&attributes(toggleAttributes)
       .mdc-icon-button__ripple
       if toggle
         i.material-icons.mdc-icon-button__icon.mdc-icon-button__icon--on.icon= icon
@@ -38,3 +41,4 @@ mixin mdc-icon-button(icon, ariaLabel, iconOff, on)
       else
         i.material-icons.icon= icon
       .mdc-icon-button--touch
+    +script('mdc-icon-button', id)

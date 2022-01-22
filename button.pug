@@ -22,6 +22,8 @@ mixin unelevatedButton(options)
 //- Internals, following:
   https://github.com/material-components/material-components-web/tree/master/packages/mdc-button
 
+include /pug-material-design/utils
+
 mixin mdc-button(options)
   -
     options = options || {}
@@ -41,7 +43,9 @@ mixin mdc-button(options)
         }
     }
   .mdc-touch-target-wrapper
+    - const id = randomId();
     button.mdc-button.mdc-button--touch(
+      id=id,
       class=icon.icon ? `mdc-button--icon-${icon.position}` : ''
     )&attributes(attributes)
       span.mdc-button__ripple
@@ -52,6 +56,7 @@ mixin mdc-button(options)
         span.mdc-button__label.label= label
       if icon.trailing
         +mdc-button-icon(icon.icon)
+    +script('mdc-button', id)
 
 mixin mdc-button-icon(icon)
   i.material-icons.mdc-button__icon.icon(aria-hidden)= icon

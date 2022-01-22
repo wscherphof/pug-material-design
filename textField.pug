@@ -1,20 +1,31 @@
 mixin filledTextField(name, label, type='text', value)
-  label.mdc-text-field.mdc-text-field--filled
+  +mdc-text-field('filled')
     span.mdc-text-field__ripple
-    - const labelId = Math.random();
+    - const labelId = randomId();
     +mdc-floating-label(label, labelId)
     +mdc-text-field__input(name, type, value, labelId)&attributes(attributes)
     span.mdc-line-ripple
 
 mixin outlinedTextField(name, label, type='text', value)
-  label.mdc-text-field.mdc-text-field--outlined
+  +mdc-text-field('outlined')
     span.mdc-notched-outline
       span.mdc-notched-outline__leading
       span.mdc-notched-outline__notch
-        - const labelId = Math.random();
+        - const labelId = randomId();
         +mdc-floating-label(label, labelId)
       span.mdc-notched-outline__trailing
     +mdc-text-field__input(name, type, value, labelId)&attributes(attributes)
+
+//- Internals, following:
+  https://github.com/material-components/material-components-web/tree/master/packages/mdc-text-field
+
+include /pug-material-design/utils
+
+mixin mdc-text-field(type)
+  - const id = randomId();
+  label.mdc-text-field(id=id, class=`mdc-text-field--${type}`)
+    block
+  +script('mdc-text-field', id)
 
 mixin mdc-floating-label(label, id)
   span.mdc-floating-label.label(id=id)= label
