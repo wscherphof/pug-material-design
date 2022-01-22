@@ -5,5 +5,16 @@
   }
 
 mixin script(className, id)
-  - const script = `window['${className}'](${id});`;
+  -
+    const script = `
+      (function(){
+        const interval = setInterval(function () {
+          const init = window['${className}'];
+          if (init) {
+            clearInterval(interval);
+            init(${id});
+          }
+        });
+      })();
+    `
   script= script
