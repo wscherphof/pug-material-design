@@ -16,12 +16,9 @@ window['mdc-button'] = function (element) {
 };
 
 window['mdc-icon-button'] = function (element) {
-  const ripple = ripple(element);
-  ripple.unbounded = true;
+  const myRipple = ripple(element);
+  myRipple.unbounded = true;
   if (element.getAttribute('toggle')) {
-    const iconToggle = new MDCIconButtonToggle(element);
-    iconToggle.listen('MDCIconButtonToggle:change', (event) => {
-      element.dispatchEvent(event);
-    });
+    return new MDCIconButtonToggle(element);
   }
 };

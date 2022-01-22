@@ -21,7 +21,7 @@ async function plugin(fastify, options = {}) {
     engine: { pug },
     root: views,
     options: {
-      basedir: path.resolve('node_modules'),
+      basedir: path.resolve(__dirname, '..'), // "node_modules"
     },
   });
 

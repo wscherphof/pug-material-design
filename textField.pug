@@ -16,14 +16,14 @@ mixin outlinedTextField(name, label, type='text', value)
       span.mdc-notched-outline__trailing
     +mdc-text-field__input(name, type, value, labelId)&attributes(attributes)
 
-mixin filledTextArea(name, label, value)
+mixin filledTextArea(name, value)
   +mdc-text-field('filled').mdc-text-field--textarea.mdc-text-field--no-label
     span.mdc-text-field__ripple
     span.mdc-text-field__resizer
       +mdc-text-field__inputTextArea(name, value)&attributes(attributes)
     span.mdc-line-ripple
 
-mixin outlinedTextArea(name, label, value)
+mixin outlinedTextArea(name, value)
   +mdc-text-field('outlined').mdc-text-field--textarea.mdc-text-field--no-label
     span.mdc-notched-outline
       span.mdc-notched-outline__leading
@@ -56,8 +56,7 @@ mixin mdc-text-field__input(name, type, value, labelId)
 mixin mdc-text-field__inputTextArea(name, value)
   textarea.mdc-text-field__input(
     name=name,
-    value=value,
     rows=8,
     cols=40,
     aria-label='Label'
-  )
+  )= value
