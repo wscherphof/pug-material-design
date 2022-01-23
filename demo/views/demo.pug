@@ -1,36 +1,23 @@
-//- include ../../button
 include /pug-material-design/button
-
-style.
-  .p {
-    margin: 0.5em 0;
-  }
 
 .p: +textButton('text button')
 .p: +outlinedButton('outlined button')
 .p: +raisedButton('raised button')
 .p: +unelevatedButton('unelevated button')
 br
-.p: +textButton({ label: 'text button leading icon', icon: 'face' })
-.p: +outlinedButton({ label: 'outlined button leading icon', icon: 'face' })
-.p: +raisedButton({ label: 'raised button leading icon', icon: 'face' })
-.p: +unelevatedButton({ label: 'unelevated button leading icon', icon: 'face' })
-br
-.p: +textButton({ label: 'text button trailing icon', icon: { icon: 'face', trailing: true } })
-.p: +outlinedButton({ label: 'outlined button trailing icon', icon: { icon: 'face', trailing: true } })
-.p: +raisedButton({ label: 'raised button trailing icon', icon: { icon: 'face', trailing: true } })
-.p: +unelevatedButton({ label: 'unelevated button trailing icon', icon: { icon: 'face', trailing: true } })
+.p: +outlinedButton({ label: '(outlined) button leading icon', icon: 'face' })
+.p: +raisedButton({ label: '(raised) button trailing icon', icon: { icon: 'face', trailing: true } })
 br
 
 //- include ../../iconButton
 include /pug-material-design/iconButton
 
-.p Icon button
+.p Icon button &nbsp;
   +iconButton('favorite', 'icon button')
-.p Icon toggle button
-  +iconToggleButton('favorite_border', 'icon toggle button', 'favorite')
-.p Icon toggle button on
-  +iconToggleButton('favorite_border', 'icon toggle button on', 'favorite', true)
+.p Icon toggle button &nbsp;
+  +iconToggleButton('favorite', 'icon toggle button', 'favorite_border')
+.p Icon toggle button on &nbsp;
+  +iconToggleButton('favorite', 'icon toggle button on', 'favorite_border', true)
 br
 
 //- include ../../textField

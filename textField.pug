@@ -40,7 +40,7 @@ mixin mdc-text-field(type)
   - const id = randomId();
   label.mdc-text-field(id=id, class=`mdc-text-field--${type}`)&attributes(attributes)
     block
-    +script('mdc-text-field', id)
+    +init('mdc-text-field', id)
 
 mixin mdc-floating-label(label, id)
   span.mdc-floating-label.label(id=id)= label

@@ -56,7 +56,7 @@ mixin mdc-button(options)
         span.mdc-button__label.label= label
       if icon.trailing
         +mdc-button-icon(icon.icon)
-    +script('mdc-button', id)
+    +init('mdc-button', id)
 
 mixin mdc-button-icon(icon)
   i.material-icons.mdc-button__icon.icon(aria-hidden)= icon

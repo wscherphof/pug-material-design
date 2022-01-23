@@ -17,7 +17,6 @@ module.exports = async function (fastify, opts) {
   });
 
   fastify.register(require('fastify-htmx'));
-  // fastify.register(require('../fastify'));
   fastify.register(require('pug-material-design/fastify'));
 
   // This loads all plugins defined in routes

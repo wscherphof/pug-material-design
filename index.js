@@ -3,6 +3,8 @@ import { MDCRipple } from '@material/ripple';
 import { MDCIconButtonToggle } from '@material/icon-button';
 import { MDCTextField } from '@material/textfield';
 
+console.log('ohai');
+
 window['mdc-text-field'] = function (element) {
   return new MDCTextField(element);
 };
