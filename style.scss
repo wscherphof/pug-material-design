@@ -1,5 +1,6 @@
 @use 'material-icons/iconfont/material-icons.css';
 @use '@material/button/styles' as button;
+@use '@material/button/mixins' as button-mixins;
 @use '@material/icon-button/styles' as icon-button;
 @use '@material/floating-label/mdc-floating-label';
 @use '@material/line-ripple/mdc-line-ripple';
@@ -7,3 +8,7 @@
 @use '@material/textfield';
 
 @include textfield.core-styles;
+
+.mdc-shaped-button {
+  @include button-mixins.shape-radius(18px);
+}

@@ -5,6 +5,8 @@ include /pug-material-design/button
 .p: +raisedButton('raised button')
 .p: +unelevatedButton('unelevated button')
 br
+.p: +raisedButton({ label: 'shaped (raised) button', shaped: true })
+br
 .p: +outlinedButton({ label: '(outlined) button leading icon', icon: 'face' })
 .p: +raisedButton({ label: '(raised) button trailing icon', icon: { icon: 'face', trailing: true } })
 br

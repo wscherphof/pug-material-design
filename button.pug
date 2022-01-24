@@ -3,7 +3,8 @@
       - icon (optional): either a string (the material icon name),
           or an object with these properties:
           - icon (required)
-          - trailing=true (optional; default is: leading)
+          - trailing: true (optional; default is: leading)
+      - shaped: true (optional; default is false)
   The label element gets an additional class "label"
   The icon element gets an additional class "icon"
 
@@ -26,27 +27,29 @@ include /pug-material-design/utils
 
 mixin mdc-button(options)
   -
-    options = options || {}
+    options = options || {};
     const label = options.label ||
-        (typeof options === 'string' ? options : undefined)
+        (typeof options === 'string' ? options : undefined);
     const icon = options.icon ?
         (options.icon.icon ? options.icon : { icon: options.icon }) :
-        {}
+        {};
     if (icon.icon) {
         if (icon.trailing) {
-            icon.position = 'trailing'
-            icon.leading = false
+            icon.position = 'trailing';
+            icon.leading = false;
         } else {
-            icon.position = 'leading'
-            icon.leading = true
-            icon.trailing = false
+            icon.position = 'leading';
+            icon.leading = true;
+            icon.trailing = false;
         }
     }
+    const shaped = !!options.shaped;
   .mdc-touch-target-wrapper
     - const id = randomId();
     button.mdc-button.mdc-button--touch(
       id=id,
-      class=icon.icon ? `mdc-button--icon-${icon.position}` : ''
+      class=icon.icon ? `mdc-button--icon-${icon.position}` : '',
+      class=shaped ? 'mdc-shaped-button' : ''
     )&attributes(attributes)
       span.mdc-button__ripple
       span.mdc-button__focus-ring
