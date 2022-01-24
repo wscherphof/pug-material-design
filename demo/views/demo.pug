@@ -1,45 +1,48 @@
-include /pug-material-design/button
+.body1
+  include /pug-material-design/button
 
-.p: +textButton('text button')
-.p: +outlinedButton('outlined button')
-.p: +raisedButton('raised button')
-.p: +unelevatedButton('unelevated button')
-br
-.p: +raisedButton({ label: 'shaped (raised) button', shaped: true })
-br
-.p: +outlinedButton({ label: '(outlined) button leading icon', icon: 'face' })
-.p: +raisedButton({ label: '(raised) button trailing icon', icon: { icon: 'face', trailing: true } })
-br
+  .p: +textButton('text button')
+  .p: +outlinedButton('outlined button')
+  .p: +raisedButton('raised button')
+  .p: +unelevatedButton('unelevated button')
+  br
+  .p: +raisedButton({ label: 'shaped (raised) button', shaped: true })
+  br
+  .p: +outlinedButton({ label: '(outlined) button leading icon', icon: 'face' })
+  .p: +raisedButton({ label: '(raised) button trailing icon', icon: { icon: 'face', trailing: true } })
+  br
 
-include /pug-material-design/iconButton
+  include /pug-material-design/iconButton
 
-.p Icon button &nbsp;
-  +iconButton('favorite', 'icon button')
-.p Icon toggle button &nbsp;
-  +iconToggleButton('favorite', 'icon toggle button', 'favorite_border')
-.p Icon toggle button on &nbsp;
-  +iconToggleButton('favorite', 'icon toggle button on', 'favorite_border', true)
-br
+  .p Icon button &nbsp;
+    +iconButton('favorite', 'icon button')
+  .p Icon toggle button &nbsp;
+    +iconToggleButton('favorite', 'icon toggle button', 'favorite_border')
+  .p Icon toggle button on &nbsp;
+    +iconToggleButton('favorite', 'icon toggle button on', 'favorite_border', true)
+  br
 
-include /pug-material-design/textField
+  include /pug-material-design/textField
 
-.p: +filledTextField('name', 'filledTextField')
-.p: +outlinedTextField('name', 'outlinedTextField')
-.p: +filledTextArea('name', 'filledTextArea')
-.p: +outlinedTextArea('name', 'outlinedTextArea')
+  .p: +filledTextField('name', 'filledTextField')
+  .p: +outlinedTextField('name', 'outlinedTextField')
+  .p: +filledTextArea('name', 'filledTextArea')
+  .p: +outlinedTextArea('name', 'outlinedTextArea')
 
-h1.headline1 Headline 1
-h2.headline2 Headline 2
-h3.headline3 Headline 3
-h4.headline4 Headline 4
-h5.headline5 Headline 5
-h6.headline6 Headline 6
-h6.subtitle1 Subtitle 1
-h6.subtitle2 Subtitle 2
-.p.body1.
-  Body 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-.p.body2.
-  Body 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-.p.button Button text
-.p.caption Caption text
-.p.overline Overline text
+  include /pug-material-design/typography
+
+  +h1('Headline 1')
+  +h2('Headline 2')
+  +h3('Headline 3')
+  +h4('Headline 4')
+  +h5('Headline 5')
+  +h6('Headline 6')
+  +h6('Subtitle 1')
+  +h6('Subtitle 2')
+  .p: +button('Button text')
+  .p: +overline('Overline text')
+  .p.body1.
+    Body 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+  .p.body2.
+    Body 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+  .p: +caption('Caption text')
