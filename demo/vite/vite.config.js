@@ -7,15 +7,4 @@ export default {
       strict: false,
     },
   },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        includePaths: [
-          './node_modules',
-          '../node_modules',
-          '../../node_modules',
-        ],
-      },
-    },
-  },
 };
