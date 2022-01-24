@@ -1,6 +1,6 @@
 {
   "name": "pug-material-design",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -22,9 +22,11 @@
   },
   "homepage": "https://github.com/wscherphof/pug-material-design#readme",
   "dependencies": {
+    "@fontsource/roboto": "^4.5.1",
     "@material/button": "^13.0.0",
     "@material/icon-button": "^13.0.0",
     "@material/textfield": "^13.0.0",
+    "@material/typography": "^13.0.0",
     "fastify-plugin": "^3.0.0",
     "material-icons": "^1.10.5",
     "point-of-view": "^5.0.0",

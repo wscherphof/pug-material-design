@@ -1,7 +1,15 @@
+@use '@fontsource/roboto/300' as roboto-300;
+@use '@fontsource/roboto/400' as roboto-400;
+@use '@fontsource/roboto/500' as roboto-500;
+@use '@material/typography/mdc-typography';
+
 @use 'material-icons/iconfont/material-icons.css';
+
 @use '@material/button/styles' as button-styles;
 @use '@material/button/mixins' as button;
+
 @use '@material/icon-button/styles' as icon-button-styles;
+
 @use '@material/floating-label/mdc-floating-label';
 @use '@material/line-ripple/mdc-line-ripple';
 @use '@material/notched-outline/mdc-notched-outline';
@@ -11,4 +19,44 @@
 
 .mdc-shaped-button {
   @include button.shape-radius(18px);
+}
+
+.headline1 {
+  @extend .mdc-typography--headline1;
+}
+.headline2 {
+  @extend .mdc-typography--headline2;
+}
+.headline3 {
+  @extend .mdc-typography--headline3;
+}
+.headline4 {
+  @extend .mdc-typography--headline4;
+}
+.headline5 {
+  @extend .mdc-typography--headline5;
+}
+.headline6 {
+  @extend .mdc-typography--headline6;
+}
+.subtitle1 {
+  @extend .mdc-typography--subtitle1;
+}
+.subtitle2 {
+  @extend .mdc-typography--subtitle2;
+}
+.body1 {
+  @extend .mdc-typography--body1;
+}
+.body2 {
+  @extend .mdc-typography--body2;
+}
+.caption {
+  @extend .mdc-typography--caption;
+}
+.button {
+  @extend .mdc-typography--button;
+}
+.overline {
+  @extend .mdc-typography--overline;
 }
