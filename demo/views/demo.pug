@@ -1,122 +1,103 @@
-mixin code
-  td(style={
-    'max-width': '50%',
-  })
-    pre(style={
-      'white-space': 'pre-wrap',
-    })
-      block
-
-mixin result
-  td(style={
-    'max-width': '50%',
-  })
-    div(style={
-      margin: '.5rem',
-    })
-      block
+mixin p
+  block
+  p: hr
 
 .body1
-  table
-    thead
-    tbody
+  include /pug-material-design/button
 
-    include /pug-material-design/button
-    tr
-      +code +textButton('text button')
-      +result: +textButton('text button')
-    tr
-      +code +outlinedButton('outlined button')
-      +result: +outlinedButton('outlined button')
-    tr
-      +code +raisedButton('raised button')
-      +result: +raisedButton('raised button')
-    tr
-      +code +unelevatedButton('unelevated button')
-      +result: +unelevatedButton('unelevated button')
-    tr
-      +code +raisedButton({ label: 'shaped (raised) button', shaped: true })
-      +result: +raisedButton({ label: 'shaped (raised) button', shaped: true })
-    tr
-      +code +outlinedButton({ label: '(outlined) button leading icon', icon: 'face' })
-      +result: +outlinedButton({ label: '(outlined) button leading icon', icon: 'face' })
-    tr
-      +code +raisedButton({ label: '(raised) button trailing icon', icon: { icon: 'face', trailing: true } })
-      +result: +raisedButton({ label: '(raised) button trailing icon', icon: { icon: 'face', trailing: true } })
+  +p
+    pre +textButton('text button')
+    +textButton('text button')
+  +p
+    pre +outlinedButton('outlined button')
+    +outlinedButton('outlined button')
+  +p
+    pre +raisedButton('raised button')
+    +raisedButton('raised button')
+  +p
+    pre +unelevatedButton('unelevated button')
+    +unelevatedButton('unelevated button')
+  +p
+    pre +raisedButton({ label: 'shaped (raised) button', shaped: true })
+    +raisedButton({ label: 'shaped (raised) button', shaped: true })
+  +p
+    pre +outlinedButton({ label: '(outlined) button leading icon', icon: 'face' })
+    +outlinedButton({ label: '(outlined) button leading icon', icon: 'face' })
+  +p
+    pre +raisedButton({ label: '(raised) button trailing icon', icon: { icon: 'face', trailing: true } })
+    +raisedButton({ label: '(raised) button trailing icon', icon: { icon: 'face', trailing: true } })
 
-    include /pug-material-design/iconButton
+  include /pug-material-design/iconButton
 
-    tr
-      +code +iconButton('favorite', 'icon button')
-      +result: +iconButton('favorite', 'icon button')
-    tr
-      +code +iconToggleButton('favorite', 'icon toggle button', 'favorite_border')
-      +result: +iconToggleButton('favorite', 'icon toggle button', 'favorite_border')
-    tr
-      +code +iconToggleButton('favorite', 'icon toggle button on', 'favorite_border', true)
-      +result: +iconToggleButton('favorite', 'icon toggle button on', 'favorite_border', true)
+  +p
+    pre +iconButton('favorite', 'icon button')
+    +iconButton('favorite', 'icon button')
+  +p
+    pre +iconToggleButton('favorite', 'icon toggle button', 'favorite_border')
+    +iconToggleButton('favorite', 'icon toggle button', 'favorite_border')
+  +p
+    pre +iconToggleButton('favorite', 'icon toggle button on', 'favorite_border', true)
+    +iconToggleButton('favorite', 'icon toggle button on', 'favorite_border', true)
 
-    include /pug-material-design/textField
+  include /pug-material-design/textField
 
-    tr
-      +code +filledTextField('name', 'filledTextField')
-      +result: +filledTextField('name', 'filledTextField')
-    tr
-      +code +outlinedTextField('name', 'outlinedTextField')
-      +result: +outlinedTextField('name', 'outlinedTextField')
-    tr
-      +code +filledTextArea('name', 'filledTextArea')
-      +result: +filledTextArea('name', 'filledTextArea')
-    tr
-      +code +outlinedTextArea('name', 'outlinedTextArea')
-      +result: +outlinedTextArea('name', 'outlinedTextArea')
+  +p
+    pre +filledTextField('name', 'filledTextField')
+    +filledTextField('name', 'filledTextField')
+  +p
+    pre +outlinedTextField('name', 'outlinedTextField')
+    +outlinedTextField('name', 'outlinedTextField')
+  +p
+    pre +filledTextArea('name', 'filledTextArea')
+    +filledTextArea('name', 'filledTextArea')
+  +p
+    pre +outlinedTextArea('name', 'outlinedTextArea')
+    +outlinedTextArea('name', 'outlinedTextArea')
 
-    include /pug-material-design/typography
+  include /pug-material-design/typography
 
-    tr
-      +code +h1 Headline 1
-      +result: +h1 Headline 1
-    tr
-      +code +h2 Headline 2
-      +result: +h2 Headline 2
-    tr
-      +code +h3 Headline 3
-      +result: +h3 Headline 3
-    tr
-      +code +h4 Headline 4
-      +result: +h4 Headline 4
-    tr
-      +code +h5 Headline 5
-      +result: +h5 Headline 5
-    tr
-      +code +h6 Headline 6
-      +result: +h6 Headline 6
-    tr
-      +code +h6 Subtitle 1
-      +result: +h6 Subtitle 1
-    tr
-      +code +h6 Subtitle 2
-      +result: +h6 Subtitle 2
-    tr
-      +code +button Button text
-      +result: +button Button text
-    tr
-      +code +overline Overline text
-      +result: +overline Overline text
-    tr
-      +code.
-        .p.body1.
-          Body 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-      +result
-        .p.body1.
-          Body 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-    tr
-      +code.
-        .p.body2.
-          Body 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-      +result
-        .p.body2.
-          Body 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-    tr
-      +code +caption Caption text
-      +result: +caption Caption text
+  +p
+    pre +h1 Headline 1
+    +h1 Headline 1
+  +p
+    pre +h2 Headline 2
+    +h2 Headline 2
+  +p
+    pre +h3 Headline 3
+    +h3 Headline 3
+  +p
+    pre +h4 Headline 4
+    +h4 Headline 4
+  +p
+    pre +h5 Headline 5
+    +h5 Headline 5
+  +p
+    pre +h6 Headline 6
+    +h6 Headline 6
+  +p
+    pre +h6 Subtitle 1
+    +h6 Subtitle 1
+  +p
+    pre +h6 Subtitle 2
+    +h6 Subtitle 2
+  +p
+    pre +button Button text
+    +button Button text
+  +p
+    pre +overline Overline text
+    +overline Overline text
+  +p
+    pre.
+      .body1.
+        Body 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+    .body1.
+      Body 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+  +p
+    pre.
+      .body2.
+        Body 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+    .body2.
+      Body 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+  +p
+    pre +caption Caption text
+    +caption Caption text

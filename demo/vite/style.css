@@ -3,9 +3,13 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 
-.p {
-  margin: 1em 0;
+body {
+  margin: 0;
+}
+
+pre {
+  white-space: pre-wrap;
+  margin: 0.5em;
 }
