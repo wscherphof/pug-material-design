@@ -1,38 +1,53 @@
-mixin h1(text)
-  h1.headline1&attributes(attributes)= text
+//- https://github.com/material-components/material-components-web/tree/v13.0.0/packages/mdc-typography#typography
 
-mixin h2(text)
-  h2.headline2&attributes(attributes)= text
+mixin h1
+  h1.headline1&attributes(attributes)
+    block
 
-mixin h3(text)
-  h3.headline3&attributes(attributes)= text
+mixin h2
+  h2.headline2&attributes(attributes)
+    block
 
-mixin h4(text)
-  h4.headline4&attributes(attributes)= text
+mixin h3
+  h3.headline3&attributes(attributes)
+    block
 
-mixin h5(text)
-  h5.headline5&attributes(attributes)= text
+mixin h4
+  h4.headline4&attributes(attributes)
+    block
 
-mixin h6(text)
-  h6.headline6&attributes(attributes)= text
+mixin h5
+  h5.headline5&attributes(attributes)
+    block
 
-mixin subtitle1(text)
-  h6.subtitle1&attributes(attributes)= text
+mixin h6
+  h6.headline6&attributes(attributes)
+    block
 
-mixin subtitle2(text)
-  h6.subtitle2&attributes(attributes)= text
+mixin subtitle1
+  h6.subtitle1&attributes(attributes)
+    block
 
-mixin body1(text)
-  body.body1&attributes(attributes)= text
+mixin subtitle2
+  h6.subtitle2&attributes(attributes)
+    block
 
-mixin body2(text)
-  body.body2&attributes(attributes)= text
+mixin body1
+  body.body1&attributes(attributes)
+    block
 
-mixin caption(text)
-  span.caption&attributes(attributes)= text
+mixin body2
+  body.body2&attributes(attributes)
+    block
 
-mixin button(text)
-  button.caption&attributes(attributes)= text
+mixin caption
+  span.caption&attributes(attributes)
+    block
 
-mixin overline(text)
-  span.overline&attributes(attributes)= text
+mixin button
+  button.caption&attributes(attributes)
+    block
+
+mixin overline
+  span.overline&attributes(attributes)
+    block
