@@ -1,48 +1,119 @@
+mixin code
+  td(style={
+    'max-width': '50%',
+  })
+    pre(style={
+      'white-space': 'pre-wrap',
+    })
+      block
+
+mixin result
+  td(style={
+    'max-width': '50%',
+  })
+    block
+
 .body1
-  include /pug-material-design/button
+  table
+    thead
+    tbody
 
-  .p: +textButton('text button')
-  .p: +outlinedButton('outlined button')
-  .p: +raisedButton('raised button')
-  .p: +unelevatedButton('unelevated button')
-  br
-  .p: +raisedButton({ label: 'shaped (raised) button', shaped: true })
-  br
-  .p: +outlinedButton({ label: '(outlined) button leading icon', icon: 'face' })
-  .p: +raisedButton({ label: '(raised) button trailing icon', icon: { icon: 'face', trailing: true } })
-  br
+    include /pug-material-design/button
+    tr
+      +code +textButton('text button')
+      +result: +textButton('text button')
+    tr
+      +code +outlinedButton('outlined button')
+      +result: +outlinedButton('outlined button')
+    tr
+      +code +raisedButton('raised button')
+      +result: +raisedButton('raised button')
+    tr
+      +code +unelevatedButton('unelevated button')
+      +result: +unelevatedButton('unelevated button')
+    tr
+      +code +raisedButton({ label: 'shaped (raised) button', shaped: true })
+      +result: +raisedButton({ label: 'shaped (raised) button', shaped: true })
+    tr
+      +code +outlinedButton({ label: '(outlined) button leading icon', icon: 'face' })
+      +result: +outlinedButton({ label: '(outlined) button leading icon', icon: 'face' })
+    tr
+      +code +raisedButton({ label: '(raised) button trailing icon', icon: { icon: 'face', trailing: true } })
+      +result: +raisedButton({ label: '(raised) button trailing icon', icon: { icon: 'face', trailing: true } })
 
-  include /pug-material-design/iconButton
+    include /pug-material-design/iconButton
 
-  .p Icon button &nbsp;
-    +iconButton('favorite', 'icon button')
-  .p Icon toggle button &nbsp;
-    +iconToggleButton('favorite', 'icon toggle button', 'favorite_border')
-  .p Icon toggle button on &nbsp;
-    +iconToggleButton('favorite', 'icon toggle button on', 'favorite_border', true)
-  br
+    tr
+      +code +iconButton('favorite', 'icon button')
+      +result: +iconButton('favorite', 'icon button')
+    tr
+      +code +iconToggleButton('favorite', 'icon toggle button', 'favorite_border')
+      +result: +iconToggleButton('favorite', 'icon toggle button', 'favorite_border')
+    tr
+      +code +iconToggleButton('favorite', 'icon toggle button on', 'favorite_border', true)
+      +result: +iconToggleButton('favorite', 'icon toggle button on', 'favorite_border', true)
 
-  include /pug-material-design/textField
+    include /pug-material-design/textField
 
-  .p: +filledTextField('name', 'filledTextField')
-  .p: +outlinedTextField('name', 'outlinedTextField')
-  .p: +filledTextArea('name', 'filledTextArea')
-  .p: +outlinedTextArea('name', 'outlinedTextArea')
+    tr
+      +code +filledTextField('name', 'filledTextField')
+      +result: +filledTextField('name', 'filledTextField')
+    tr
+      +code +outlinedTextField('name', 'outlinedTextField')
+      +result: +outlinedTextField('name', 'outlinedTextField')
+    tr
+      +code +filledTextArea('name', 'filledTextArea')
+      +result: +filledTextArea('name', 'filledTextArea')
+    tr
+      +code +outlinedTextArea('name', 'outlinedTextArea')
+      +result: +outlinedTextArea('name', 'outlinedTextArea')
 
-  include /pug-material-design/typography
+    include /pug-material-design/typography
 
-  +h1 Headline 1
-  +h2 Headline 2
-  +h3 Headline 3
-  +h4 Headline 4
-  +h5 Headline 5
-  +h6 Headline 6
-  +h6 Subtitle 1
-  +h6 Subtitle 2
-  .p: +button Button text
-  .p: +overline Overline text
-  .p.body1.
-    Body 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-  .p.body2.
-    Body 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-  .p: +caption Caption text
+    tr
+      +code +h1 Headline 1
+      +result: +h1 Headline 1
+    tr
+      +code +h2 Headline 2
+      +result: +h2 Headline 2
+    tr
+      +code +h3 Headline 3
+      +result: +h3 Headline 3
+    tr
+      +code +h4 Headline 4
+      +result: +h4 Headline 4
+    tr
+      +code +h5 Headline 5
+      +result: +h5 Headline 5
+    tr
+      +code +h6 Headline 6
+      +result: +h6 Headline 6
+    tr
+      +code +h6 Subtitle 1
+      +result: +h6 Subtitle 1
+    tr
+      +code +h6 Subtitle 2
+      +result: +h6 Subtitle 2
+    tr
+      +code +button Button text
+      +result: +button Button text
+    tr
+      +code +overline Overline text
+      +result: +overline Overline text
+    tr
+      +code.
+        .p.body1.
+          Body 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+      +result
+        .p.body1.
+          Body 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+    tr
+      +code.
+        .p.body2.
+          Body 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+      +result
+        .p.body2.
+          Body 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+    tr
+      +code +caption Caption text
+      +result: +caption Caption text
