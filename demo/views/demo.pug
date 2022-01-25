@@ -54,6 +54,30 @@ mixin p
     pre +outlinedTextArea('name', 'outlinedTextArea')
     +outlinedTextArea('name', 'outlinedTextArea')
 
+  include /pug-material-design/checkbox
+
+  +p
+    pre +checkbox('name', 'label')
+    +checkbox('name', 'label')
+  +p
+    pre +checkbox('name', 'label', { checked: true })
+    +checkbox('name', 'label', { checked: true })
+  +p
+    pre +checkbox('name', 'label', { indeterminate: true })
+    +checkbox('name', 'label', { indeterminate: true })
+  +p
+    pre +checkbox('name', 'label', { checked: true, disabled: true })
+    +checkbox('name', 'label', { checked: true, disabled: true })
+  +p
+    pre +checkbox('name', 'label', { reversed: true })
+    +checkbox('name', 'label', { reversed: true })
+  +p
+    pre +checkbox('name', 'wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap')
+    +checkbox('name', 'wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap')
+  +p
+    pre +checkbox('name', 'nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap', { nowrap: true })
+    +checkbox('name', 'nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap nowrap', { nowrap: true })
+
   include /pug-material-design/typography
 
   +p

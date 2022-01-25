@@ -1,0 +1,51 @@
+//- <div class="mdc-touch-target-wrapper">
+//-   <div class="mdc-checkbox mdc-checkbox--touch">
+//-     <input type="checkbox"
+//-            class="mdc-checkbox__native-control"
+//-            id="checkbox-1"/>
+//-     <div class="mdc-checkbox__background">
+//-       <svg class="mdc-checkbox__checkmark"
+//-            viewBox="0 0 24 24">
+//-         <path class="mdc-checkbox__checkmark-path"
+//-               fill="none"
+//-               d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+//-       </svg>
+//-       <div class="mdc-checkbox__mixedmark"></div>
+//-     </div>
+//-     <div class="mdc-checkbox__ripple"></div>
+//-   </div>
+//- </div>
+
+include /pug-material-design/utils
+
+mixin checkbox(name, label, options = {})
+  - const { value, checked, indeterminate, disabled, reversed, nowrap } = options;
+  .mdc-touch-target-wrapper
+    .mdc-form-field(
+      class=reversed ? 'mdc-form-field--align-end' : '',
+      class=nowrap ? 'mdc-form-field--nowrap' : ''
+    )
+      .mdc-checkbox.mdc-checkbox--touch(
+        class=disabled ? 'mdc-checkbox--disabled' : ''
+      )
+        - const id = randomId();
+        input.mdc-checkbox__native-control(
+          id=id,
+          type='checkbox',
+          name=name,
+          value=value,
+          checked=checked,
+          disabled=disabled,
+          indeterminate=indeterminate,
+          data-indeterminate=indeterminate ? 'true' : ''
+        )&attributes(attributes)
+        .mdc-checkbox__background
+          svg.mdc-checkbox__checkmark(viewBox='0 0 24 24')
+            path.mdc-checkbox__checkmark-path(
+              fill='none',
+              d='M1.73,12.91 8.1,19.28 22.79,4.59'
+            )
+          .mdc-checkbox__mixedmark
+        .mdc-checkbox__ripple
+      label(for=id)= label
+  +init('mdc-checkbox', id)

@@ -1,6 +1,6 @@
 {
   "name": "pug-material-design",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -24,6 +24,8 @@
   "dependencies": {
     "@fontsource/roboto": "^4.5.1",
     "@material/button": "^13.0.0",
+    "@material/checkbox": "^13.0.0",
+    "@material/form-field": "^13.0.0",
     "@material/icon-button": "^13.0.0",
     "@material/textfield": "^13.0.0",
     "@material/typography": "^13.0.0",

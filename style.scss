@@ -15,7 +15,12 @@
 @use '@material/notched-outline/mdc-notched-outline';
 @use '@material/textfield';
 
+@use '@material/checkbox';
+@use '@material/form-field';
+
 @include textfield.core-styles;
+@include checkbox.core-styles;
+@include form-field.core-styles;
 
 .mdc-shaped-button {
   @include button.shape-radius(18px);
